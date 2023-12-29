@@ -1,6 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { GoogleMap, StandaloneSearchBox, LoadScript } from '@react-google-maps/api';
 import FindHospitalButton from './FindHospitalButton';
+
 
 const apiKey = 'AIzaSyCdawcAYPOV_peGZ3QYh7AFgo7jj5TakP0';
 const mapContainerStyle = {
@@ -8,10 +9,12 @@ const mapContainerStyle = {
     height: '100vh',
 };
 
-const Address = () => {
+const Address = ({ onNavigateBack }) => {
     const inputRef = useRef();
     const [center, setCenter] = useState({ lat: 51, lng: 0 });
     const [showFindHospitalButton, setShowFindHospitalButton] = useState(false);
+
+
 
     const handlePlacesChanged = async () => {
         try {
@@ -27,11 +30,6 @@ const Address = () => {
         } catch (error) {
             console.error('Error handling places change:', error);
         }
-    };
-
-    const handleFindHospital = (selectedSpecialty) => {
-        console.log('Selected Specialty:', selectedSpecialty);
-        // Add logic to fetch hospitals with the selected specialty
     };
 
     return (
