@@ -1,7 +1,7 @@
-// FindHospitalButton.js
 import React, { useState } from 'react';
 import './FindHospitalButton.css';
 import AppointmentForm from './AppointmentForm';
+
 
 
 const FindHospitalButton = ({ center }) => {
@@ -11,6 +11,7 @@ const FindHospitalButton = ({ center }) => {
     const [selectedSpeciality, setSelectedSpeciality] = useState('');
     const [isAppointmentFormVisible, setIsAppointmentFormVisible] = useState(false);
     const [appointmentData, setAppointmentData] = useState(null);
+
 
     const handleFindHospital = async () => {
         if (!selectedSpeciality) {
@@ -60,6 +61,7 @@ const FindHospitalButton = ({ center }) => {
     };
 
     return (
+
         <div>
             <select onChange={handleSpecialityChange} value={selectedSpeciality}>
                 <option value="" disabled>Select Speciality</option>
@@ -158,11 +160,12 @@ const FindHospitalButton = ({ center }) => {
             )}
 
             {appointmentData && (
-                <div>
+                <div className="success-message">
                     <p>{`Rendez-vous réservé pour ${appointmentData.firstName} ${appointmentData.lastName} le ${appointmentData.date} a ${appointmentData.time} dans l'hopital :  ${hospitalName}`}</p>
                 </div>
             )}
         </div>
+
     );
 };
 

@@ -1,4 +1,3 @@
-// AppointmentForm.js
 import React, { useState } from 'react';
 
 const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hospitalName, distance, hospitalTime }) => {
@@ -6,7 +5,7 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
         firstName: '',
         lastName: '',
         date: '',
-        time: '', // Add time field
+        time: '', 
     });
 
     const handleChange = (e) => {
@@ -20,10 +19,8 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Validate the form data here if needed
 
         try {
-            // Make the API call to create an appointment
             const response = await fetch('http://localhost:8080/appointment/create', {
                 method: 'POST',
                 headers: {
@@ -40,11 +37,9 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
             });
 
             if (response.ok) {
-                // La requête a réussi, tu peux traiter la réponse si nécessaire
                 const responseData = await response;
                 console.log('Appointment booked successfully:', responseData);
 
-                // Réinitialise le formulaire après la réservation
                 setFormData({
                     firstName: '',
                     lastName: '',
@@ -52,15 +47,12 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
                     time: '',
                 });
 
-                // Appelle la fonction de rappel pour indiquer le succès
                 onBookAppointment(formData);
             } else {
-                // La requête a échoué avec un statut différent de 200 OK
                 throw new Error(`Failed to book appointment. Status: ${response.status}`);
             }
 
         } catch (error) {
-            // Handle errors, you can show an error message to the user
             console.error('Error booking appointment:', error);
         }
     };

@@ -1,4 +1,3 @@
-/* src/components/FindHospitalButton.css */
 button {
     background-color: #4caf50;
     color: white;
@@ -7,3 +6,8 @@ button {
     cursor: pointer;
   }
 
+.success-message {
+    color: green;
+    font-size: 18px;
+    font-weight: bold;
+}
