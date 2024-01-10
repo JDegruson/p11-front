@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# Projet de Réservation de Rendez-vous Médical 
+Ce projet vise à créer une application React permettant aux utilisateurs de prendre des rendez-vous médicaux en ligne de manière simple et efficace.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Fonctionnalités Principales 
+### Page Principale 
+Affiche une interface conviviale permettant aux utilisateurs de naviguer entre différentes sections de l'application. 
+### Prendre un Rendez-vous 
+Permet aux utilisateurs de sélectionner leur emplacement, spécialité médicale et horaire pour réserver un rendez-vous. 
+### Affichage des Rendez-vous
+Une page dédiée qui affiche tous les rendez-vous pris par l'utilisateur. 
 
-## Available Scripts
+## Technologies Utilisées 
+### React 
+La bibliothèque JavaScript pour la construction de l'interface utilisateur.
+### React Router 
+Pour la gestion des routes et de la navigation dans l'application.
+### Google Maps API 
+Intégration pour la sélection d'emplacements.
+### @react-google-maps/api 
+Bibliothèque pour l'intégration facile de Google Maps avec React. 
+### Autres dépendances 
+Jest pour les tests unitaires, selenium pour les tests end to end.
 
-In the project directory, you can run:
+## Installation 
+### Cloner le repository 
+git clone https://github.com/votre-utilisateur/votre-projet.git 
+### Installer les dépendances
+npm install Lancer l'application : npm start
 
-### `npm start`
+## Git workflow 
+### Branches principales
+master: Représente la branche principale du développement, contenant toujours le dernier déploiement de production. 
+### Flux de travail
+Développement de nouvelles fonctionnalités dans des branches distinctes. Création d'une pull request pour discussion et validation. Fusion de la pull request dans master après la validation. Le déploiement continu est encouragé, avec des mises en production fréquentes à partir de master. Les bugs et les corrections sont effectués directement dans master et déployés immédiatement.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Configuration de Google Maps API
+Obtenez une clé API Google Maps à partir de Google Cloud Console. Copiez la clé API dans le fichier AddressForm.js où apiKey est défini. 
+##Tests Unitaires 
+Le projet utilise Jest pour les tests unitaires. Pour lancer les tests, utilisez la commande : npm test
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+##Test selenium 
+Le projet utilise selenium pour les tests end ti end. Pour lancer les tests, utilisez la commande : npm run test:selenium
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Auteur Degruson Julien
