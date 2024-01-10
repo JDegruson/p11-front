@@ -1,4 +1,5 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import AddressForm from './components/AddressForm';
 import AppointmentsPage from './components/AppointmentsPage';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -15,6 +16,9 @@ function App() {
     return (
         <Router>
             <div>
+                <Helmet>
+                    <title>Rendez vous</title>
+                </Helmet>
                 <nav>
                     <ul>
                         <li>

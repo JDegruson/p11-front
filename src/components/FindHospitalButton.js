@@ -62,7 +62,7 @@ const FindHospitalButton = ({ center }) => {
 
     return (
 
-        <div>
+        <div data-testid="findhospitalbutton">
             <select onChange={handleSpecialityChange} value={selectedSpeciality}>
                 <option value="" disabled>Select Speciality</option>
                 <option value="SOINS_INTENSIFS">Soins Intensifs</option>
@@ -144,7 +144,7 @@ const FindHospitalButton = ({ center }) => {
                 <option value="UROLOGIE">Urologie</option>
                 <option value="CHIRURGIE_VASCULAIRE">Chirurgie Vasculaire</option>
             </select>
-            <button onClick={handleFindHospital}>
+            <button id="findHospitalButton" onClick={handleFindHospital}>
                 Trouver l'hôpital le plus proche
             </button>
 

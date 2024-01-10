@@ -1,10 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\public",
     "\\src",
-    "\\src\\components"
+    "\\src\\selenium",
+    "\\src\\selenium\\logs",
+    "\\src\\selenium\\screenshots",
+    "\\test\\pageobjects",
+    "\\test\\specs"
   ],
-  "SelectedNode": "\\src\\components\\AppointmentsPage.js",
+  "SelectedNode": "\\src\\selenium\\screenshots",
   "PreviewInSolutionExplorer": false
 }

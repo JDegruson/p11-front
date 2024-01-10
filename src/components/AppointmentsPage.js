@@ -22,7 +22,7 @@ const AppointmentsPage = () => {
     }, []);
 
     return (
-        <div>
+        <div data-testid="appointments-page">
             <table>
                 <thead>
                     <tr>
