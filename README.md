@@ -35,10 +35,10 @@ Développement de nouvelles fonctionnalités dans des branches distinctes. Créa
 
 ## Configuration de Google Maps API
 Obtenez une clé API Google Maps à partir de Google Cloud Console. Copiez la clé API dans le fichier AddressForm.js où apiKey est défini. 
-##Tests Unitaires 
+## Tests Unitaires 
 Le projet utilise Jest pour les tests unitaires. Pour lancer les tests, utilisez la commande : npm test
 
-##Test selenium 
+## Test selenium 
 Le projet utilise selenium pour les tests end ti end. Pour lancer les tests, utilisez la commande : npm run test:selenium
 
 Auteur Degruson Julien
