@@ -33,6 +33,7 @@ const Address = ({ onNavigateBack }) => {
     };
 
     return (
+        <div data-testid="address-form" >
         <LoadScript googleMapsApiKey={apiKey} libraries={['places']}>
             {showFindHospitalButton && (
                 <div className="find-hospital-container">
@@ -51,7 +52,8 @@ const Address = ({ onNavigateBack }) => {
             </StandaloneSearchBox>
 
             <GoogleMap mapContainerStyle={mapContainerStyle} zoom={10} center={center}></GoogleMap>
-        </LoadScript>
+            </LoadScript>
+            </div>
     );
 };
 
