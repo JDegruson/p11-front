@@ -2,49 +2,70 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import AddressForm from './components/AddressForm';
 import AppointmentsPage from './components/AppointmentsPage';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-
+import Login from './components/Login';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
+import { useLocalState } from './components/useLocalStorage';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
     const [appointmentsVisible, setAppointmentsVisible] = useState(false);
+    const [jwt, setJwt] = useLocalState('', "jwt");
 
     const handleNavigateBack = () => {
         setAppointmentsVisible(false);
     };
 
+    const login = async (e) => {
+        e.preventDefault();
+        const response = await fetch('http://localhost:8080/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+    }
+
     return (
         <Router>
             <div>
                 <Helmet>
-                    <title>Rendez vous</title>
+                    <title>P11</title>
                 </Helmet>
                 <nav>
                     <ul>
-                        <li>
-                            <Link to="/appointments">Rendez vous</Link>
-                        </li>
-                        <li>
-                            <Link to="/appointment">Prendre un rendez vous</Link>
-                        </li>
+                        {jwt ? (
+                            <>
+                                <li>
+                                    <Link to="/appointments">Rendez vous</Link>
+                                </li>
+                                <li>
+                                    <Link to="/appointment">Prendre un rendez vous</Link>
+                                </li>
+                            </>
+                        ) : (
+                            <li>
+                                <Link to="/login">Login</Link>
+                            </li>
+                        )}
                     </ul>
                 </nav>
                 <Routes>
                     <Route
                         path="/appointments"
-                        element={<AppointmentsPage onNavigateBack={handleNavigateBack} />}
+                        element={
+                            <PrivateRoute><AppointmentsPage/></PrivateRoute>}
                     />
                     <Route
                         path="/appointment"
-                        element={<AddressForm onNavigateBack={handleNavigateBack} />}
+                        element={<PrivateRoute><AddressForm /></PrivateRoute>}
+                    />
+                    <Route
+                        path="/login"
+                        element={<Login />}
                     />
                 </Routes>
             </div>
-
-
         </Router>
-
-
     );
 }
 
