@@ -44,7 +44,7 @@ function App() {
                             </>
                         ) : (
                             <li>
-                                <Link to="/login">Login</Link>
+                                <Link to="/login">Connexion</Link>
                             </li>
                         )}
                     </ul>

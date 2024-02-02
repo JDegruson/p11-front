@@ -9,7 +9,8 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [jwt, setJwt] = useLocalState('', "jwt");
 
-    function handleLogin() {
+    function handleLogin(event) {
+        event.preventDefault()
         if (!jwt) {
             const credentials = {
                 username: username,
@@ -24,8 +25,12 @@ const Login = () => {
                 body: JSON.stringify(credentials),
             })
                 .then((response) => {
-                    if (response.status === 200) return Promise.all([response.json(), response.headers]);
-                    else return Promise.reject("Invalid login attempt");
+                    if (response.status === 200) {
+                        return Promise.all([response.json(), response.headers]);
+                    }
+                    else {
+                        return Promise.reject("Invalid login attempt");
+                    }
                 })
                 .then(([body, headers]) => {
                     setJwt(headers.get("authorization"));
@@ -61,7 +66,7 @@ const Login = () => {
                         placeholder="Mot de passe"
                     />
                 </div>
-                <button type="submit">Connexion</button>
+                <button id="loggingButton" type="submit">Connexion</button>
             </form>
         </div>
     );
