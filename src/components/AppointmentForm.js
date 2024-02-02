@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLocalState } from './useLocalStorage';
 
 const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hospitalName, distance, hospitalTime }) => {
     const [formData, setFormData] = useState({
@@ -7,6 +8,8 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
         date: '',
         time: '', 
     });
+    const [jwt, setJwt] = useLocalState('', 'jwt');
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -16,6 +19,11 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
         }));
     };
 
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwt}`,
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -23,9 +31,7 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
         try {
             const response = await fetch('http://localhost:8080/appointment/create', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: headers,
                 body: JSON.stringify({
                     latitude: lat,
                     longitude: lng,

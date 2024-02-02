@@ -2,12 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\selenium",
-    "\\src\\selenium\\logs",
-    "\\src\\selenium\\screenshots",
-    "\\test\\pageobjects",
-    "\\test\\specs"
+    "\\src\\components"
   ],
-  "SelectedNode": "\\src\\selenium\\screenshots",
+  "SelectedNode": "\\src\\components\\PrivateRoute.js",
   "PreviewInSolutionExplorer": false
 }

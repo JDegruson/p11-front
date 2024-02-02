@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { useLocalState } from './useLocalStorage';
 
 const AppointmentsPage = () => {
     const [appointments, setAppointments] = useState([]);
+    const [jwt, setJwt] = useLocalState('', 'jwt');
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${jwt}`,
+    }
 
     useEffect(() => {
+
+
         const fetchData = async () => {
-            try {
-                const response = await fetch('http://localhost:8080/appointment/appointments');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch appointments');
-                }
-
-                const data = await response.json();
+            fetch("http://localhost:8080/appointment/appointments", {
+                method: 'GET',
+                headers: headers,
+            }).then((response) => {
+                if (response.status == 200) return response.json();
+            }).then((data) => {
                 setAppointments(data);
-            } catch (error) {
-                console.error('Error fetching appointments:', error);
-            }
+            })
+            
         };
-
         fetchData();
     }, []);
 

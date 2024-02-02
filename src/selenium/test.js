@@ -16,12 +16,29 @@ it('End to end', async () => {
     await takeScreenShot(screenshotsDirectory);
     //await expect(title).toBe('Rendez vous');
 
-    // CLIQUER SUR PRENDRE UN RDV
-    const linkElement = await $('//a[contains(@href, "/appointment") and contains(text(), "Prendre un rendez vous")]');
 
-    await linkElement.click();
+    //LOGGING
+    const linkElementLogging = await $('//a[contains(@href, "/login") and contains(text(), "Connexion")]');
+
+    await linkElementLogging.click();
+
+    const inputElementUsername = await $('input[name="username"]');
+    await inputElementUsername.setValue('user');
+
+    const inputElementPassword = await $('input[name="password"]');
+    await inputElementPassword.setValue('password');
+
     await browser.pause(1000);
     takeScreenShot(screenshotsDirectory);
+
+    const loggingButton = await $('#loggingButton');
+    await loggingButton.waitForExist();
+    await loggingButton.click();
+    // CLIQUER SUR PRENDRE UN RDV
+    //const linkElement = await $('//a[contains(@href, "/appointment") and contains(text(), "Prendre un rendez vous")]');
+
+    //await linkElement.click();
+    //await browser.pause(1000);
     //const isAddressFormPresent = await $('[data-testid="address-form"]').isExisting();
     //expect(isAddressFormPresent).toBe(true);
     const inputElement = await $('.form-control.pac-target-input');

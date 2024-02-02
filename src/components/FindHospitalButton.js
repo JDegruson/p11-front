@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FindHospitalButton.css';
 import AppointmentForm from './AppointmentForm';
+import { useLocalState } from './useLocalStorage';
 
 
 
@@ -11,7 +12,13 @@ const FindHospitalButton = ({ center }) => {
     const [selectedSpeciality, setSelectedSpeciality] = useState('');
     const [isAppointmentFormVisible, setIsAppointmentFormVisible] = useState(false);
     const [appointmentData, setAppointmentData] = useState(null);
+    const [jwt, setJwt] = useLocalState('', 'jwt');
 
+
+    const headers = {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwt}`,
+    }
 
     const handleFindHospital = async () => {
         if (!selectedSpeciality) {
@@ -19,35 +26,29 @@ const FindHospitalButton = ({ center }) => {
             return;
         }
 
-        try {
-            const apiUrl = 'http://localhost:8080/appointment/findHospital';
+        const apiUrl = 'http://localhost:8080/hospital/findHospital';
 
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    latitude: center.lat,
-                    longitude: center.lng,
-                    speciality: selectedSpeciality,
-                }),
-            });
+        fetch(apiUrl, {
+            method: 'POST',
+            headers: headers,
+            body: JSON.stringify({
+                latitude: center.lat,
+                longitude: center.lng,
+                speciality: selectedSpeciality,
+            }),
+        }).then((response) => {
+            if (response.status === 200) return response.json();
+        }).then((data) => {
+            setHospitalName(data.name);
+            setDistance(data.distance);
+            setTime(data.time);
+            setIsAppointmentFormVisible(true);
+        });
 
-            if (!response.ok) {
-                throw new Error('Failed to fetch hospitals from the API');
-            }
+        
 
-            const responseData = await response.json();
-            console.log('Réponse de l\'API :', responseData);
-            setHospitalName(responseData.name);
-            setDistance(responseData.distance);
-            setTime(responseData.time);
-            console.log('Informations de l\'hôpital récupérées avec succès !');
-        } catch (error) {
-            console.error('Erreur lors de la récupération des informations de l\'hôpital :', error);
-        }
-        setIsAppointmentFormVisible(true);
+  
+        
     };
 
     const handleBookAppointment = (data) => {

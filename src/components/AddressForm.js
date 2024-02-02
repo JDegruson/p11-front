@@ -9,7 +9,7 @@ const mapContainerStyle = {
     height: '100vh',
 };
 
-const Address = ({ onNavigateBack }) => {
+const Address = () => {
     const inputRef = useRef();
     const [center, setCenter] = useState({ lat: 51, lng: 0 });
     const [showFindHospitalButton, setShowFindHospitalButton] = useState(false);
