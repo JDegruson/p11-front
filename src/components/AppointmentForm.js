@@ -29,7 +29,7 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
 
 
         try {
-            const response = await fetch('http://localhost:8080/appointment/create', {
+            const response = await fetch('http://localhost:8080/appointment/appointment', {
                 method: 'POST',
                 headers: headers,
                 body: JSON.stringify({
