@@ -26,7 +26,7 @@ const FindHospitalButton = ({ center }) => {
             return;
         }
 
-        const apiUrl = 'http://localhost:8080/hospital/findHospital';
+        const apiUrl = 'http://localhost:8080/hospital/hospital';
 
         fetch(apiUrl, {
             method: 'POST',
