@@ -66,9 +66,9 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
     return (
         <div data-testid="appointment-form" className="appointment-form">
             <div>
-                <h3>L'hopital le plus proche est : {hospitalName}, il se situe a {distance} et est a {hospitalTime} en voiture. Voulez vous prendre un rendez vous ?</h3>
+                <h3>L'hopital le plus proche est : {hospitalName}, il se situe a {distance} et est a {hospitalTime} en voiture. Voulez vous reserver un lit ?</h3>
             </div>
-            <h2>Prendre un rendez vous</h2>
+            <h2>Reserver un lit</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     Prenom:
@@ -110,7 +110,7 @@ const AppointmentForm = ({ onBookAppointment, selectedSpeciality, lat, lng, hosp
                         required
                     />
                 </label>
-                <button id="bookappointment" type="submit">Valider le rendez vous</button>
+                <button id="bookappointment" type="submit">Valider la reservation de lit</button>
             </form>
         </div>
         
