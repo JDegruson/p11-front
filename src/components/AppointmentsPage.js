@@ -33,7 +33,7 @@ const AppointmentsPage = () => {
                     <tr>
                         <th>Nom du patient</th>
                         <th>Nom de l'hopital</th>
-                        <th>Date du rendez vous</th>
+                        <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>

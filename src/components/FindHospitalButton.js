@@ -14,7 +14,7 @@ const FindHospitalButton = ({ center }) => {
     const [appointmentData, setAppointmentData] = useState(null);
     const [jwt, setJwt] = useLocalState('', 'jwt');
 
-
+    
     const headers = {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${jwt}`,
@@ -162,7 +162,7 @@ const FindHospitalButton = ({ center }) => {
 
             {appointmentData && (
                 <div className="success-message">
-                    <p>{`Rendez-vous réservé pour ${appointmentData.firstName} ${appointmentData.lastName} le ${appointmentData.date} a ${appointmentData.time} dans l'hopital :  ${hospitalName}`}</p>
+                    <p>{`Lit réservé pour ${appointmentData.firstName} ${appointmentData.lastName} le ${appointmentData.date} a ${appointmentData.time} dans l'hopital :  ${hospitalName}`}</p>
                 </div>
             )}
         </div>

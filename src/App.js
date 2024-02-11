@@ -36,10 +36,10 @@ function App() {
                         {jwt ? (
                             <>
                                 <li>
-                                    <Link to="/appointments">Rendez vous</Link>
+                                    <Link to="/appointments">Reservations</Link> 
                                 </li>
                                 <li>
-                                    <Link to="/appointment">Prendre un rendez vous</Link>
+                                    <Link to="/appointment">Reserver un lit</Link>
                                 </li>
                             </>
                         ) : (
